@@ -15,6 +15,10 @@
 		26EC0A7220A78BA800004E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A7120A78BA800004E8F /* main.m */; };
 		26EC0A7C20A78BA800004E8F /* CircleTransitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A7B20A78BA800004E8F /* CircleTransitionTests.m */; };
 		26EC0A8720A78BA800004E8F /* CircleTransitionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A8620A78BA800004E8F /* CircleTransitionUITests.m */; };
+		26EC0A9620A78BBE00004E8F /* OutputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A9520A78BBE00004E8F /* OutputViewController.m */; };
+		26EC0A9920A83A2D00004E8F /* BaseCircleOpenCloseVCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A9820A83A2D00004E8F /* BaseCircleOpenCloseVCTransition.m */; };
+		26EC0A9C20A83A7F00004E8F /* CircleOpenVCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A9B20A83A7F00004E8F /* CircleOpenVCTransition.m */; };
+		26EC0A9F20A83A9900004E8F /* CircleCloseVCTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 26EC0A9E20A83A9900004E8F /* CircleCloseVCTransition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,14 @@
 		26EC0A8220A78BA800004E8F /* CircleTransitionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CircleTransitionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26EC0A8620A78BA800004E8F /* CircleTransitionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleTransitionUITests.m; sourceTree = "<group>"; };
 		26EC0A8820A78BA800004E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26EC0A9420A78BBE00004E8F /* OutputViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutputViewController.h; sourceTree = "<group>"; };
+		26EC0A9520A78BBE00004E8F /* OutputViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutputViewController.m; sourceTree = "<group>"; };
+		26EC0A9720A83A2C00004E8F /* BaseCircleOpenCloseVCTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseCircleOpenCloseVCTransition.h; sourceTree = "<group>"; };
+		26EC0A9820A83A2D00004E8F /* BaseCircleOpenCloseVCTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseCircleOpenCloseVCTransition.m; sourceTree = "<group>"; };
+		26EC0A9A20A83A7F00004E8F /* CircleOpenVCTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleOpenVCTransition.h; sourceTree = "<group>"; };
+		26EC0A9B20A83A7F00004E8F /* CircleOpenVCTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleOpenVCTransition.m; sourceTree = "<group>"; };
+		26EC0A9D20A83A9900004E8F /* CircleCloseVCTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleCloseVCTransition.h; sourceTree = "<group>"; };
+		26EC0A9E20A83A9900004E8F /* CircleCloseVCTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleCloseVCTransition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +115,16 @@
 			children = (
 				26EC0A6220A78BA500004E8F /* AppDelegate.h */,
 				26EC0A6320A78BA500004E8F /* AppDelegate.m */,
+				26EC0A9420A78BBE00004E8F /* OutputViewController.h */,
+				26EC0A9520A78BBE00004E8F /* OutputViewController.m */,
 				26EC0A6520A78BA500004E8F /* ViewController.h */,
 				26EC0A6620A78BA600004E8F /* ViewController.m */,
+				26EC0A9720A83A2C00004E8F /* BaseCircleOpenCloseVCTransition.h */,
+				26EC0A9820A83A2D00004E8F /* BaseCircleOpenCloseVCTransition.m */,
+				26EC0A9A20A83A7F00004E8F /* CircleOpenVCTransition.h */,
+				26EC0A9B20A83A7F00004E8F /* CircleOpenVCTransition.m */,
+				26EC0A9D20A83A9900004E8F /* CircleCloseVCTransition.h */,
+				26EC0A9E20A83A9900004E8F /* CircleCloseVCTransition.m */,
 				26EC0A6820A78BA600004E8F /* Main.storyboard */,
 				26EC0A6B20A78BA800004E8F /* Assets.xcassets */,
 				26EC0A6D20A78BA800004E8F /* LaunchScreen.storyboard */,
@@ -263,8 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				26EC0A6720A78BA600004E8F /* ViewController.m in Sources */,
+				26EC0A9620A78BBE00004E8F /* OutputViewController.m in Sources */,
+				26EC0A9920A83A2D00004E8F /* BaseCircleOpenCloseVCTransition.m in Sources */,
 				26EC0A7220A78BA800004E8F /* main.m in Sources */,
 				26EC0A6420A78BA500004E8F /* AppDelegate.m in Sources */,
+				26EC0A9C20A83A7F00004E8F /* CircleOpenVCTransition.m in Sources */,
+				26EC0A9F20A83A9900004E8F /* CircleCloseVCTransition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
