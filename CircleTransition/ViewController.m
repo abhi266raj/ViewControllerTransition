@@ -9,6 +9,9 @@
 #import "ViewController.h"
 #import "CircleOpenVCTransition.h"
 #import "CircleCloseVCTransition.h"
+#import "ShapeOpenTransition.h"
+#import "ShapeCloseTransition.h"
+
 
 #import "OutputViewController.h"
 
@@ -21,9 +24,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.button = [UIButton new];
-    _button.frame = CGRectMake(0, 0, 100, 100);
+    _button.frame = CGRectMake(0, 0, 200, 200);
     [self.view addSubview:self.button];
     self.button.backgroundColor = [UIColor redColor];
+//    UIBezierPath *beizerPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 25, 100, 50)];
+//     UIBezierPath *beizerPath2 = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 25, 200, 100)];
+//    
+//    CAShapeLayer *shapeLayer = [CAShapeLayer new];
+//    //shapeLayer.backgroundColor = [UIColor purpleColor].CGColor;
+//    //shapeLayer.fillColor = [UIColor greenColor].CGColor;
+//   // shapeLayer.path = beizerPath.CGPath;
+//    
+//    //[self.button.layer addSublayer:shapeLayer];
+//    self.button.layer.mask = shapeLayer;
+//    
+//    CABasicAnimation *basicAnimation = [CABasicAnimation animationWithKeyPath:@"path"];
+//    basicAnimation.fromValue = (__bridge id _Nullable)(beizerPath.CGPath);
+//    basicAnimation.toValue = (__bridge id _Nullable)(beizerPath2.CGPath);
+//    basicAnimation.duration = 2;
+//    
+//    [basicAnimation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn]];
+//    [shapeLayer addAnimation:basicAnimation forKey:@"A"];
+//    [CATransaction begin];
+//    [CATransaction setDisableActions:true];
+//    shapeLayer.path = beizerPath2.CGPath;
+//    [CATransaction commit];
+    //shapeLayer.frame = _button.frame;
+    //shapeLayer.frame =CGRectMake(25, 25, 50, 50);
     [self.button addTarget:self action:@selector(openVC) forControlEvents:UIControlEventTouchUpInside];
     
     // Do any additional setup after loading the view, typically from a nib.
@@ -38,16 +65,58 @@
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source{
     // self.isDismissed = false;
-    BaseCircleOpenCloseVCTransition *transition =   [CircleOpenVCTransition new];
+    ShapeOpenTransition *transition =   [ShapeOpenTransition new];
+    transition.centrePointAnimation = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2.0);
+    transition.beizerPathFetchBlock = ^UIBezierPath *(CGRect frame) {
+      //  frame = CGRectMake(0, 0, frame.size.width*3, frame.size.height*3);
+        UIBezierPath* trianglePath = [UIBezierPath bezierPath];
+        //CGPoint center = CGPointMake((frame.origin.x + frame.size.width)/2.0, (frame.origin.y + frame.size.height)/2.0);
+        [trianglePath moveToPoint:CGPointMake(frame.origin.x, frame.origin.y)];
+        [trianglePath addLineToPoint:CGPointMake(frame.origin.x + frame.size.width/2, frame.origin.y +frame.size.height)];
+        [trianglePath addLineToPoint:CGPointMake(frame.origin.x + frame.size.width,frame.origin.y)];
+        
+      //  UIColor *fillColor = [UIColor whiteColor];
+        //[fillColor setFill];
+        //UIColor *strokeColor = [UIColor whiteColor];
+        //[strokeColor setStroke];
+        
+       // [trianglePath fill];
+        //[trianglePath stroke];
+        
+        [trianglePath closePath];
+        return trianglePath;
+    };
+       
+    
    // transition.circleCentrePoint = CGPointMake(200,200);
     return transition;
 }
 
 - (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
    // self.isDismissed = true;
-   BaseCircleOpenCloseVCTransition *transition =   [CircleCloseVCTransition new];
+   ShapeCloseTransition *transition =   [ShapeCloseTransition new];
+    transition.centrePointAnimation = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2.0);
+    transition.beizerPathFetchBlock = ^UIBezierPath *(CGRect frame) {
+        //  frame = CGRectMake(0, 0, frame.size.width*3, frame.size.height*3);
+        UIBezierPath* trianglePath = [UIBezierPath bezierPath];
+        //CGPoint center = CGPointMake((frame.origin.x + frame.size.width)/2.0, (frame.origin.y + frame.size.height)/2.0);
+        [trianglePath moveToPoint:CGPointMake(frame.origin.x, frame.origin.y)];
+        [trianglePath addLineToPoint:CGPointMake(frame.origin.x + frame.size.width/2, frame.origin.y +frame.size.height)];
+        [trianglePath addLineToPoint:CGPointMake(frame.origin.x + frame.size.width,frame.origin.y)];
+        
+        //  UIColor *fillColor = [UIColor whiteColor];
+        //[fillColor setFill];
+        //UIColor *strokeColor = [UIColor whiteColor];
+        //[strokeColor setStroke];
+        
+        // [trianglePath fill];
+        //[trianglePath stroke];
+        
+        [trianglePath closePath];
+        return trianglePath;
+    };
   //  transition.circleCentrePoint = CGPointMake(200,200);
-    return transition;
+    return transition ;
 }
 
 // synchronize with the main animation.

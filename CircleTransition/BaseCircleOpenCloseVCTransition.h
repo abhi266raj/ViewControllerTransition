@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+
+
+//Abstract BaseClass
 @interface BaseCircleOpenCloseVCTransition : NSObject<UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic,assign) CGPoint circleCentrePoint;

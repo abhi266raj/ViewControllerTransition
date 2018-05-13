@@ -36,6 +36,9 @@
     CGFloat value =  2;
     
     circleView.frame = CGRectMake(self.circleCentrePoint.x, self.circleCentrePoint.y, 0, 0);
+  
+    //toView.layer.mask = shapeLayer;
+    
     // circleView.center = containerView.center;
     
     circleView.layer.cornerRadius = 0;
